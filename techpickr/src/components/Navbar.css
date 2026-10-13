@@ -1,0 +1,174 @@
+/* TechPickr navbar: dark glass pill with a mint button */
+.nav {
+  --roll-color: #9aa0a6;
+  --roll-hover: #ffffff;
+
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: min(1120px, calc(100% - 32px));
+  padding: 10px 12px 10px 18px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(12, 14, 16, 0.72);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  font-size: 0.95rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-scrolled {
+  border-color: rgba(52, 211, 153, 0.2);
+  background: rgba(9, 11, 12, 0.9);
+}
+
+/* ---------- logo ---------- */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: #04130c;
+}
+
+.nav-logo-text span {
+  color: #34d399;
+}
+
+/* ---------- links ---------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin: 0 auto;
+}
+
+/* ---------- button ---------- */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #34d399, #6ee7b7);
+  color: #04130c;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-cta span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(52, 211, 153, 0.35);
+}
+
+.nav-cta:hover span {
+  transform: translateX(3px);
+}
+
+.nav .nav-cta-mobile {
+  display: none;
+}
+
+/* ---------- mobile menu button ---------- */
+.nav-burger {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.nav-burger span {
+  position: absolute;
+  left: 11px;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: #ffffff;
+  transition: transform 0.25s ease, top 0.25s ease;
+}
+
+.nav-burger span:nth-child(1) { top: 14px; }
+.nav-burger span:nth-child(2) { top: 22px; }
+
+.nav-open .nav-burger span:nth-child(1) { top: 18px; transform: rotate(45deg); }
+.nav-open .nav-burger span:nth-child(2) { top: 18px; transform: rotate(-45deg); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 860px) {
+  .nav {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav .nav-cta-desktop {
+    display: none;
+  }
+
+  .nav-burger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin: 0;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(9, 11, 12, 0.96);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav .nav-cta-mobile {
+    display: inline-flex;
+    margin-top: 6px;
+  }
+}
